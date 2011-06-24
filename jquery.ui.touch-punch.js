@@ -45,7 +45,7 @@
       event = this._prevEvent;
 		}
 
-    return (t.length == 1 ? (this._prevEvent=$.extend(event, {
+    return (touches.length == 1 ? (this._prevEvent=$.extend(event, {
       type:    mouseEvents[event.type],
       which:   1,
       pageX:   touch.pageX,
