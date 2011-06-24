@@ -98,10 +98,18 @@
 
     var self = this;
 
+		self._touchMoveDelegate = function (event) {
+      return self._mouseMove(makeMouseEvent(event));
+    };
+    
+    self._touchEndDelegate = function(event) {
+      return self._mouseUp(makeMouseEvent(event));
+    };
+
     $(document)
       .unbind('touchmove.' + self.widgetName, self._touchMoveDelegate)
       .unbind('touchend.' + self.widgetName, self._touchEndDelegate);
-    event.preventDefault();
+
     return _mouseUp.call(self, event);
   };
 
