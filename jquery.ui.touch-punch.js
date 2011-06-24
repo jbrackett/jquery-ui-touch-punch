@@ -41,8 +41,8 @@
     var touches = getNativeEvent(event).changedTouches;
     var touch = touches[0];
 
-		if(event.type == 'touchend' && this.prevEvent) {
-      event = this.prevEvent;
+		if(event.type == 'touchend' && this._prevEvent) {
+      event = this._prevEvent;
 		}
 
     return (t.length == 1 ? (this._prevEvent=$.extend(event, {
