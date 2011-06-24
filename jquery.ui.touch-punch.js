@@ -7,6 +7,9 @@
  * Depends:
  *  jquery.ui.widget.js
  *  jquery.ui.mouse.js
+ *
+ *  Modifications by:
+ *  Josh Brackett
  */
 (function ($) {
 
