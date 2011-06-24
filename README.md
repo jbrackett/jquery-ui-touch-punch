@@ -1,3 +1,6 @@
 Live example of drag and drop: http://jsfiddle.net/jbrackett/byzXc/ 
 
-*This jsfiddle points at the master branch of this project
+The above jsfiddle points at the master branch of this project
+
+6/24/2011 4:08ET:
+Android drag and drop seems to be working pretty well now.  The one caveat is that the second item you try to dnd has to be clicked once before it will drag.  I dont' have access to an IPad/IPhone at the moment so I'm not sure about those.
