@@ -60,7 +60,7 @@
 
     var self = this;
 
-    $(document).bind('touchstart.' + self.widgetName, function (event) {
+    self.element.bind('touchstart.' + self.widgetName, function (event) {
       return self._mouseDown(makeMouseEvent(event));
     });
 
