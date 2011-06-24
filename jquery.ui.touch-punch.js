@@ -39,7 +39,7 @@
   function makeMouseEvent (event) {
 
     var touches = getNativeEvent(event).changedTouches;
-    var touch = touches[1];
+    var touch = touches[0];
 
 		if(event.type == 'touchend' && this._prevEvent) {
       event = this._prevEvent;
