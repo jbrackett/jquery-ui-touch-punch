@@ -38,7 +38,7 @@
   
   function makeMouseEvent (event) {
 		var touch;
-    if(event.type === touchstart || event.type === touchmove) {
+    if(event.type === 'touchstart' || event.type === 'touchmove') {
     	touch = getNativeEvent(event).touches[0];
 		}
 		else {
