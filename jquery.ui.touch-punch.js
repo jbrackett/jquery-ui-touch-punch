@@ -38,19 +38,9 @@
   
   function makeMouseEvent (event) {
 
-    var touches = getNativeEvent(event).changedTouches;
-    var touch = touches[0];
-/*	
-		if(event.type == 'touchend' && this._prevEvent) {
-      event = this._prevEvent;
-		}
-*/
-/*		
-		if (event.type=='touchend') {
-		  alert(event.type + " " + mouseEvents[event.type] + " " + touches.length);
-		}
-*/
-    return (this._prevEvent=$.extend(event, {
+    var touch = getNativeEvent(event).changedTouches[0];
+
+    return $.extend(event, {
       type:    mouseEvents[event.type],
       which:   1,
       pageX:   touch.pageX,
@@ -59,7 +49,7 @@
       screenY: touch.screenY,
       clientX: touch.clientX,
       clientY: touch.clientY,
-      target:  touch.target})
+      target:  touch.target}
     );
   }
 
