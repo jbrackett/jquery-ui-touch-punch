@@ -39,7 +39,7 @@
   function makeMouseEvent (event) {
 
     var touches = getNativeEvent(event).changedTouches;
-    var touch = touches[0];
+    var touch = touches[1];
 
 		if(event.type == 'touchend' && this._prevEvent) {
       event = this._prevEvent;
@@ -71,7 +71,8 @@
 
   mouseProto._mouseDown = function (event) {
 
-    var self = this
+    var self = this,
+        ret  = _mouseDown.call(self, event);
 
     self._touchMoveDelegate = function (event) {
       return self._mouseMove(makeMouseEvent(event));
@@ -85,7 +86,7 @@
       .bind('touchmove.' + self.widgetName, self._touchMoveDelegate)
       .bind('touchend.' + self.widgetName, self._touchEndDelegate);
 
-    return _mouseDown.call(self, event);
+    return ret;
   };
 
   mouseProto._mouseUp = function (event) {
