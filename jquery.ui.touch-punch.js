@@ -86,7 +86,7 @@
   mouseProto._mouseUp = function (event) {
 
     var self = this;
-
+    $(document).trigger('click');
     $(document)
       .unbind('touchmove.' + self.widgetName, self._touchMoveDelegate)
       .unbind('touchend.' + self.widgetName, self._touchEndDelegate);
