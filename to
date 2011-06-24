@@ -1,0 +1,25 @@
+[1mdiff --git a/jquery.ui.touch-punch.js b/jquery.ui.touch-punch.js[m
+[1mindex 2b8ab07..68654dc 100755[m
+[1m--- a/jquery.ui.touch-punch.js[m
+[1m+++ b/jquery.ui.touch-punch.js[m
+[36m@@ -26,10 +26,19 @@[m
+         touchmove:  'mousemove',[m
+         touchend:   'mouseup'[m
+       };[m
+[32m+[m[41m  [m
+[32m+[m[32m  function getNativeEvent (event) {[m
+ [m
+[32m+[m[32m    while(event && typeof event.originalEvent !== "undefined") {[m
+[32m+[m[32m      event=event.originalEvent;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    return event;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+   function makeMouseEvent (event) {[m
+ [m
+[31m-    var touch = event.originalEvent.changedTouches[0];[m
+[32m+[m[32m    var touch = getNativeEvent(event).changedTouches[0];[m
+ [m
+     return $.extend(event, {[m
+       type:    mouseEvents[event.type],[m

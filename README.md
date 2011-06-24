@@ -1,1 +1,1 @@
-Check out some live examples at <http://furf.com/exp/touch-punch/>
+Live example of drag and drop: http://jsfiddle.net/jbrackett/byzXc/
