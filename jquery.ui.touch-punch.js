@@ -45,10 +45,11 @@
       event = this._prevEvent;
 		}
 */
+/*		
 		if (event.type=='touchend') {
 		  alert(event.type + " " + mouseEvents[event.type] + " " + touches.length);
 		}
-
+*/
     return (this._prevEvent=$.extend(event, {
       type:    mouseEvents[event.type],
       which:   1,
