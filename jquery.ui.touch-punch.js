@@ -37,13 +37,9 @@
   }
   
   function makeMouseEvent (event) {
-		var touch;
-    if(event.type === 'touchstart' || event.type === 'touchmove') {
-    	touch = getNativeEvent(event).touches[0];
-		}
-		else {
-			touch = getNativeEvent(event).changedTouches[0];
-		}
+
+    var touch = getNativeEvent(event).changedTouches[0];
+
     return $.extend(event, {
       type:    mouseEvents[event.type],
       which:   1,
@@ -90,7 +86,7 @@
   mouseProto._mouseUp = function (event) {
 
     var self = this;
-    
+
     $(document)
       .unbind('touchmove.' + self.widgetName, self._touchMoveDelegate)
       .unbind('touchend.' + self.widgetName, self._touchEndDelegate);
