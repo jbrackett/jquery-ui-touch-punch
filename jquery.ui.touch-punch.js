@@ -45,7 +45,7 @@
       event = this._prevEvent;
 		}
 
-    return (touches.length == 1 ? (this._prevEvent=$.extend(event, {
+    return (this._prevEvent=$.extend(event, {
       type:    mouseEvents[event.type],
       which:   1,
       pageX:   touch.pageX,
@@ -54,7 +54,7 @@
       screenY: touch.screenY,
       clientX: touch.clientX,
       clientY: touch.clientY,
-      target:  touch.target})): false
+      target:  touch.target})
     );
   }
 
@@ -71,8 +71,7 @@
 
   mouseProto._mouseDown = function (event) {
 
-    var self = this,
-        ret  = _mouseDown.call(self, event);
+    var self = this
 
     self._touchMoveDelegate = function (event) {
       return self._mouseMove(makeMouseEvent(event));
@@ -86,7 +85,7 @@
       .bind('touchmove.' + self.widgetName, self._touchMoveDelegate)
       .bind('touchend.' + self.widgetName, self._touchEndDelegate);
 
-    return ret;
+    return _mouseDown.call(self, event);
   };
 
   mouseProto._mouseUp = function (event) {
