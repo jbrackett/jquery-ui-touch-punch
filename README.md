@@ -1,6 +1,7 @@
 Just add into your project and you're done!
 
-Live example of drag and drop: http://jsfiddle.net/jbrackett/byzXc/ 
+Live example of drag and drop: http://jsfiddle.net/jbrackett/byzXc/
+
 The above jsfiddle points at the master branch of this project so it'll be constantly updated.
 
 6/24/2011 4:08ET:
