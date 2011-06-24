@@ -37,9 +37,13 @@
   }
   
   function makeMouseEvent (event) {
-
-    var touch = getNativeEvent(event).changedTouches[0];
-		console.log('touch event is '+event.type+' which is mapped to '+mouseEvents[event.type]);
+		var touch;
+    if(event.type === touchstart || event.type === touchmove) {
+    	touch = getNativeEvent(event).touches[0];
+		}
+		else {
+			touch = getNative(event).changedTouches[0];
+		}
     return $.extend(event, {
       type:    mouseEvents[event.type],
       which:   1,
@@ -55,17 +59,16 @@
   mouseProto._mouseInit = function () {
 
     var self = this;
-    console.log('Calling our mouseInit');
+
     self.element.bind('touchstart.' + self.widgetName, function (event) {
       return self._mouseDown(makeMouseEvent(event));
     });
-    console.log('touchstart bound');
+
     _mouseInit.call(self);
   };
 
   mouseProto._mouseDown = function (event) {
 
-		console.log('Calling our mouseDown');
     var self = this,
         ret  = _mouseDown.call(self, event);
 
@@ -80,19 +83,18 @@
     $(document)
       .bind('touchmove.' + self.widgetName, self._touchMoveDelegate)
       .bind('touchend.' + self.widgetName, self._touchEndDelegate);
-		console.log('touchmove and touchend bound');
+
     return ret;
   };
 
   mouseProto._mouseUp = function (event) {
-    console.log('Calling our mouseUp');
+
     var self = this;
- 
+    
     $(document)
       .unbind('touchmove.' + self.widgetName, self._touchMoveDelegate)
       .unbind('touchend.' + self.widgetName, self._touchEndDelegate);
 
-		console.log('touch move and touchend unbound');
     return _mouseUp.call(self, event);
   };
 
