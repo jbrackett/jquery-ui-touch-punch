@@ -54,7 +54,7 @@
       screenY: touch.screenY,
       clientX: touch.clientX,
       clientY: touch.clientY,
-      target:  touch.target}): false)
+      target:  touch.target})): false
     );
   }
 
