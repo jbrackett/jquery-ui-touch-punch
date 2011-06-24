@@ -42,7 +42,7 @@
     	touch = getNativeEvent(event).touches[0];
 		}
 		else {
-			touch = getNative(event).changedTouches[0];
+			touch = getNativeEvent(event).changedTouches[0];
 		}
     return $.extend(event, {
       type:    mouseEvents[event.type],
