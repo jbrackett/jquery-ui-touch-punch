@@ -51,7 +51,8 @@
       screenX: touch.screenX,
       screenY: touch.screenY,
       clientX: touch.clientX,
-      clientY: touch.clientY
+      clientY: touch.clientY,
+      target:  touch.target
 		});
   }
 
