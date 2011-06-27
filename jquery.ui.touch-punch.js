@@ -51,9 +51,8 @@
       screenX: touch.screenX,
       screenY: touch.screenY,
       clientX: touch.clientX,
-      clientY: touch.clientY,
-      target:  touch.target}
-    );
+      clientY: touch.clientY
+		});
   }
 
   mouseProto._mouseInit = function () {
