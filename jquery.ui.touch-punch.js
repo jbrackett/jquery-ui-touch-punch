@@ -64,7 +64,7 @@
       return self._mouseDown(makeMouseEvent(event));
     });
 
-    _mouseInit.call(self);
+    _mouseInit.call(this);
   };
 
   mouseProto._mouseDown = function (event) {
