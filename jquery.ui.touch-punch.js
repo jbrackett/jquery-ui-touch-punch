@@ -11,7 +11,7 @@
  *  Modifications by:
  *  Josh Brackett
  */
-(function ($) {
+(function ($, undefined) {
 
   $.support.touch = "ontouchend" in document;
 
