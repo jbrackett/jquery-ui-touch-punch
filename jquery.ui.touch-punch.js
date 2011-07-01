@@ -95,6 +95,7 @@
       .unbind('touchmove.' + this.widgetName)
       .unbind('touchend.' + this.widgetName);
 
+    self._mouseInit();
     return _mouseUp.call(self, event);
   };
 
