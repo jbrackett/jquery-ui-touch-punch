@@ -23,6 +23,7 @@
       _mouseInit  = mouseProto._mouseInit,
       _mouseDown  = mouseProto._mouseDown,
       _mouseUp    = mouseProto._mouseUp,
+      $document = $(document),
 
       mouseEvents = {
         touchstart: 'mousedown',
@@ -80,7 +81,7 @@
       return self._mouseUp(makeMouseEvent(event));
     };
 
-    $(document)
+    $document
       .bind('touchmove.' + this.widgetName, this._touchMoveDelegate)
       .bind('touchend.' + this.widgetName, this._touchEndDelegate);
 
@@ -91,7 +92,7 @@
 
     var self = this;
 
-    $(document)
+    $document
       .unbind('touchmove.' + this.widgetName)
       .unbind('touchend.' + this.widgetName);
 
