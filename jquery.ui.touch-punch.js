@@ -96,7 +96,7 @@
       .unbind('touchmove.' + this.widgetName)
       .unbind('touchend.' + this.widgetName);
 
-    return /*_mouseUp.call(self, event);*/
+    return false;/*_mouseUp.call(self, event);*/
   };
 
 })(jQuery);
