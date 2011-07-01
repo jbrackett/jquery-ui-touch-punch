@@ -81,10 +81,10 @@
     };
 
 		this._mouseMoveDelegate = function(event) {
-			return self._mouseMove(event);
+			return _mouseMove(event);
 		};
 		this._mouseUpDelegate = function(event) {
-			return self._mouseUp(event);
+			return _mouseUp(event);
 		};
 
     $document
