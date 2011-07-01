@@ -30,14 +30,6 @@
         touchend:   'mouseup'
       };
   
-  var _touchMoveDelegate = function (event) {
-    return self._mouseMove(makeMouseEvent(event));
-  };
-    
-  var _touchEndDelegate = function(event) {
-    return self._mouseUp(makeMouseEvent(event));
-  };
-
   function getNativeEvent (event) {
 
     while(event && typeof event.originalEvent !== "undefined") {
@@ -80,20 +72,35 @@
     var self = this,
         ret  = _mouseDown.call(self, event);
 
+    this._touchMoveDelegate = function (event) {
+      return self._mouseMove(makeMouseEvent(event));
+    };
+    
+    this._touchEndDelegate = function(event) {
+      return self._mouseUp(makeMouseEvent(event));
+    };
+
     $(document)
-      .bind('touchmove.' + this.widgetName, this._touchMoveDelegate(event))
-      .bind('touchend.' + this.widgetName, this._touchEndDelegate(event));
+      .bind('touchmove.' + this.widgetName, this._touchMoveDelegate)
+      .bind('touchend.' + this.widgetName, this._touchEndDelegate);
 
     return ret;
-  };
+  }
+    this._touchMoveDelegate = function (event) {
+      return self._mouseMove(makeMouseEvent(event));
+    };
+    
+    this._touchEndDelegate = function(event) {
+      return self._mouseUp(makeMouseEvent(event));
+    };;
 
   mouseProto._mouseUp = function (event) {
 
     var self = this;
 
     $(document)
-      .unbind('touchmove.' + this.widgetName, this._touchMoveDelegate(event))
-      .unbind('touchend.' + this.widgetName, this._touchEndDelegate(event));
+      .unbind('touchmove.' + this.widgetName)
+      .unbind('touchend.' + this.widgetName);
 
     return _mouseUp.call(self, event);
   };
