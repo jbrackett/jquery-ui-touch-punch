@@ -71,7 +71,7 @@
   mouseProto._mouseDown = function (event) {
 
     var self = this,
-        ret  = true;/*_mouseDown.call(self, event)*/;
+        ret  = _mouseDown.call(self, event);
 
     this._touchMoveDelegate = function (event) {
       return self._mouseMove(makeMouseEvent(event));
@@ -83,11 +83,7 @@
 
     $document
       .bind('touchmove.' + this.widgetName, this._touchMoveDelegate)
-      .bind('touchend.' + this.widgetName, this._touchEndDelegate)
-      .bind('mousemove.' + this.widgetName, this._mouseMoveDelegate)
-      .bind('mouseup.' + this.widgetName, this._mouseUpDelegate);
-
-		event.preventDefault();
+      .bind('touchend.' + this.widgetName, this._touchEndDelegate);
 		
 
     return ret;
