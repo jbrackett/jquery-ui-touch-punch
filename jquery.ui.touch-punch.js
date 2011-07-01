@@ -85,14 +85,7 @@
       .bind('touchend.' + this.widgetName, this._touchEndDelegate);
 
     return ret;
-  }
-    this._touchMoveDelegate = function (event) {
-      return self._mouseMove(makeMouseEvent(event));
-    };
-    
-    this._touchEndDelegate = function(event) {
-      return self._mouseUp(makeMouseEvent(event));
-    };;
+  };
 
   mouseProto._mouseUp = function (event) {
 
