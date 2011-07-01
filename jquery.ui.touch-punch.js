@@ -71,7 +71,7 @@
   mouseProto._mouseDown = function (event) {
 
     var self = this,
-        ret  = true;/*_mouseDown.call(self, event);*/
+        ret  = /*_mouseDown.call(self, event)*/;
 
     this._touchMoveDelegate = function (event) {
       return self._mouseMove(makeMouseEvent(event));
@@ -83,9 +83,14 @@
 
     $document
       .bind('touchmove.' + this.widgetName, this._touchMoveDelegate)
-      .bind('touchend.' + this.widgetName, this._touchEndDelegate);
+      .bind('touchend.' + this.widgetName, this._touchEndDelegate)
+      .bind('mousemove.' + this.widgetName, this._mouseMoveDelegate)
+      .bind('mouseup.' + this.widgetName, this._mouseUpDelegate);
 
-    return ret;
+		event.preventDefault();
+		
+
+    return true;
   };
 
   mouseProto._mouseUp = function (event) {
@@ -96,7 +101,7 @@
       .unbind('touchmove.' + this.widgetName)
       .unbind('touchend.' + this.widgetName);
 
-    return true;/*_mouseUp.call(self, event);*/
+    return _mouseUp.call(self, event);
   };
 
 })(jQuery);
