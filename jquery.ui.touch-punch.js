@@ -72,13 +72,12 @@
     var self = this,
         ret  = _mouseDown.call(self, event);
 
-		var touchEvent = makeMouseEvent(event);
-    this._touchMoveDelegate = function (touchEvent) {
-      return self._mouseMove(touchEvent);
+    this._touchMoveDelegate = function (event) {
+      return self._mouseMove(makeMouseEvent(event));
     };
     
-    this._touchEndDelegate = function(touchEvent) {
-      return self._mouseUp(touchEvent);
+    this._touchEndDelegate = function(event) {
+      return self._mouseUp(makeMouseEvent(event));
     };
 
     $(document)
