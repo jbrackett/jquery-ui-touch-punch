@@ -81,8 +81,8 @@
         ret  = _mouseDown.call(self, event);
 
     $(document)
-      .bind('touchmove.' + this.widgetName, _touchMoveDelegate)
-      .bind('touchend.' + this.widgetName, _touchEndDelegate);
+      .bind('touchmove.' + this.widgetName, this._touchMoveDelegate(event))
+      .bind('touchend.' + this.widgetName, this._touchEndDelegate(event));
 
     return ret;
   };
@@ -92,8 +92,8 @@
     var self = this;
 
     $(document)
-      .unbind('touchmove.' + this.widgetName, _touchMoveDelegate)
-      .unbind('touchend.' + this.widgetName, _touchEndDelegate);
+      .unbind('touchmove.' + this.widgetName, this._touchMoveDelegate(event))
+      .unbind('touchend.' + this.widgetName, this._touchEndDelegate(event));
 
     return _mouseUp.call(self, event);
   };
