@@ -92,8 +92,8 @@
     var self = this;
 
     $(document)
-      .unbind('touchmove.' + this.widgetName)
-      .unbind('touchend.' + this.widgetName);
+      .unbind('touchmove.' + this.widgetName, this._touchMoveDelegate)
+      .unbind('touchend.' + this.widgetName, this._touchMoveDelegate);
 
     return _mouseUp.call(self, event);
   };
