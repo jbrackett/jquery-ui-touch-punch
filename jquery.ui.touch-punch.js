@@ -82,7 +82,7 @@
 
     $(document)
       .bind('touchmove.' + this.widgetName, this._touchMoveDelegate)
-      .bind('touchend.' + this.widgetName, this._touchEndDelegate);
+      .bind('touchend.' + this.widgetName, this._mouseUpDelegate);
 
     return ret;
   };
