@@ -75,25 +75,15 @@
     this._touchMoveDelegate = function (event) {
       return self._mouseMove(makeMouseEvent(event));
     };
-    
     this._touchEndDelegate = function(event) {
       return self._mouseUp(makeMouseEvent(event));
     };
 
-		this._mouseMoveDelegate = function(event) {
-			return _mouseMove(event);
-		};
-		this._mouseUpDelegate = function(event) {
-			return _mouseUp(event);
-		};
-
     $document
       .bind('touchmove.' + this.widgetName, this._touchMoveDelegate)
-      .bind('touchend.' + this.widgetName, this._touchEndDelegate)
-			.bind('mousemove.'+this.widgetName, this._mouseMoveDelegate)
-			.bind('mouseup.'+this.widgetName, this._mouseUpDelegate);
+      .bind('touchend.' + this.widgetName, this._touchEndDelegate);
 
-    return /*_mouseDown.call(self, event)*/true;
+    return _mouseDown.call(self, event);
   };
 
   mouseProto._mouseUp = function (event) {
