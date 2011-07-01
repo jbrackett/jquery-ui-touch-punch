@@ -71,7 +71,7 @@
   mouseProto._mouseDown = function (event) {
 
     var self = this,
-        ret  = false;/*_mouseDown.call(self, event);*/
+        ret  = _mouseDown.call(self, event);
 
     this._touchMoveDelegate = function (event) {
       return self._mouseMove(makeMouseEvent(event));
