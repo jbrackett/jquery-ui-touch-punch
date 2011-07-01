@@ -54,7 +54,7 @@
       clientX: touch.clientX,
       clientY: touch.clientY,
       target:  touch.target
-		});
+    });
   }
 
   mouseProto._mouseInit = function () {
@@ -73,14 +73,14 @@
     var self = this,
         ret  = _mouseDown.call(self, event);
 
-		self.started=true;
+    self.started=true;
     self._touchMoveDelegate = function (event) {
       if(self.started) {
         return self._mouseMove(makeMouseEvent(event));
-			}
-			else {
+      }
+      else {
         return true;
-			}
+      }
     };
     
     self._touchEndDelegate = function(event) {
