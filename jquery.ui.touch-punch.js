@@ -23,7 +23,6 @@
       _mouseInit  = mouseProto._mouseInit,
       _mouseDown  = mouseProto._mouseDown,
       _mouseUp    = mouseProto._mouseUp,
-      started = false,
 
       mouseEvents = {
         touchstart: 'mousedown',
@@ -73,18 +72,11 @@
     var self = this,
         ret  = _mouseDown.call(self, event);
 
-    self.started=true;
     self._touchMoveDelegate = function (event) {
-      if(self.started) {
-        return self._mouseMove(makeMouseEvent(event));
-      }
-      else {
-        return true;
-      }
+      return self._mouseMove(makeMouseEvent(event));
     };
     
     self._touchEndDelegate = function(event) {
-      self.started=false;
       return self._mouseUp(makeMouseEvent(event));
     };
 
