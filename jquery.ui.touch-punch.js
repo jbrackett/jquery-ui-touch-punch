@@ -97,6 +97,4 @@
     return _mouseUp.call(self, event);
   };
 
-  mouseProto._mouseDestroy = $.noop;
-
 })(jQuery);
